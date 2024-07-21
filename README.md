@@ -1,6 +1,6 @@
 # APGCC: Improving Point-based Crowd Counting and Localization Based on Auxiliary Point Guidance (ECCV)
 
-Official repository for RobustSAM: Segment Anything Robustly on Degraded Images
+Official repository for APGCC: Improving Point-based Crowd Counting and Localization Based on Auxiliary Point Guidance.
 
 [Project Page](https://apgcc.github.io/) | [Paper](https://arxiv.org/abs/2405.10589) | [Video](https://www.youtube.com/watch?v=b_ltwfD9dLI&embeds_referring_euri=https%3A%2F%2Fapgcc.github.io%2F&source_ve_path=Mjg2NjY) | [Code](https://github.com/AaronCIH/APGCC/tree/main/apgcc)
 
@@ -29,8 +29,8 @@ cd APGCC
 ```
 pip install -r requirements.txt
 ```
-4) Download pretrained APGCC checkpoints and place them into current directory.
--[SHHA APGCC checkpoint](https://drive.google.com/file/d/1pEvn5RrvmDqVJUDZ4c9-rCJcl2I7bRhu/view?usp=sharing)
+4) Download pretrained APGCC checkpoints and place them into path (./apgcc/outputs/).
+- [SHHA APGCC checkpoint](https://drive.google.com/file/d/1pEvn5RrvmDqVJUDZ4c9-rCJcl2I7bRhu/view?usp=sharing)
 ```
 cd apgcc
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pEvn5RrvmDqVJUDZ4c9-rCJcl2I7bRhu' -O ./output/SHHA_best.pth
@@ -42,7 +42,7 @@ We utilize a list file to collect all the imageas and the corresponding ground t
 cd apgcc
 python pre_process_label.py $[src_path] $[dataset] $[output_path]
 ```
-where $\[src_path\] is the dataset path, $\[dataset\] is the dataset name (e.g., 'SHHA', 'SHHB', 'NWPU'), and the $\[output_path\] specify the output folder.
+where \[src_path\] is the dataset path, \[dataset\] is the dataset name (e.g., 'SHHA', 'SHHB', 'NWPU'), and the \[output_path\] specify the output folder.
 ### Data Structures:
 ```
 DATA_ROOT/
@@ -76,7 +76,7 @@ In default, the results will be saved to "./output/", and you can customize the 
 ```
 python main.py -t -c $[config] TEST.WEIGHT $[checkpoint] OUTPUT_DIR $[output path] TEST.THRESHOLD $[threshold]
 ```
-where $\[config\] specifies the initial configuration and defaults as "./configs/SHHA_test.yml", $\[checkpoint\] is your pretrained checkpoint, $\[output path\] specifies the output folder, and $\[threshold\] can filter different confidence levels. The more configure instruction please see the "./configs/SHHA_test.yml" files.
+where \[config\] specifies the initial configuration and defaults as "./configs/SHHA_test.yml", \[checkpoint\] is your pretrained checkpoint, \[output path\] specifies the output folder, and \[threshold\] can filter different confidence levels. The more configure instruction please see the "./configs/SHHA_test.yml" files.
 
 ## Performance
 <table>
