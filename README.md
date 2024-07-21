@@ -80,7 +80,7 @@ where \[config\] specifies the initial configuration and defaults as "./configs/
 
 ## Performance
 <center class="half">
-    <img width="380" alt="image" src='figures/teaser3.jpg'><img width="380" alt="image" src='figures/teaser4.jpg'>
+    <img width="200" alt="image" src='figures/teaser3.jpg'><img width="200" alt="image" src='figures/teaser4.jpg'>
 <\center>
 
 ## Visual Comparison
