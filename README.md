@@ -31,6 +31,7 @@ pip install -r requirements.txt
 ```
 4) Download pretrained APGCC checkpoints and place them into path (./apgcc/outputs/).
 - [SHHA APGCC checkpoint](https://drive.google.com/file/d/1pEvn5RrvmDqVJUDZ4c9-rCJcl2I7bRhu/view?usp=sharing)
+- You can also complete by the command:
 ```
 cd apgcc
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pEvn5RrvmDqVJUDZ4c9-rCJcl2I7bRhu' -O ./output/SHHA_best.pth
