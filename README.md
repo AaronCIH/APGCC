@@ -82,12 +82,12 @@ where \[config\] specifies the initial configuration and defaults as "./configs/
 <img width="380" alt="image" src='figures/teaser3.jpg'><img width="380" alt="image" src='figures/teaser4.jpg'>
 
 ## Visual Comparison
-<table class="images" width="100%" style="border:0px solid white; width:100%;">
-  <tr style="border: 0px;">
-    <td width="50%" style="border:0px; width:50%">
+<table>
+  <tr>
+    <td>
       <img src="figures/teaser1.gif" width="380">
     </td>
-    <td width="50%" style="border:0px; width:50%">
+    <td>
       <img src="figures/teaser2.gif" width="380">
     </td>
   </tr>
