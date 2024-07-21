@@ -1,0 +1,83 @@
+TAG: 'SHHA_basic'
+SEED: 1229                                  # seed
+GPU_ID: 0                                   # gpu_id, the gpu used for training
+OUTPUT_DIR: './output_P2P/SHHA_P2P_mix_g2/' # output_dir, path where to save, empty for no saving
+VIS: False                                  # vis the predict sample
+
+# -----------------------------------------------------------------------------
+# MODEL
+# -----------------------------------------------------------------------------
+MODEL:
+  ENCODER: 'vgg16_bn'                       # backbone, select: ['vgg16', 'vgg16_bn', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152']
+  ENCODER_kwargs: {"last_pool": False}      # last layer downsample, False:feat4(H/16,W/16), True:feat4(H/32,W/32)
+  DECODER: 'basic'                          # decoder, select: ['basic', 'IFI']
+  DECODER_kwargs: {"num_classes": 2,        # output num_classes, default:2 means confindence.
+                   "inner_planes": 256,     # basic: 256, IFI: 64
+                   "feat_layers":[3, 4]}    # control the number of decoder features. [1,2,3,4] # notice!! change Line, Row
+
+  FROZEN_WEIGHTS: None # frozen_weights, Path to the pretrained model. If set, only the mask head will be trained.
+
+  STRIDE: 8 # the size of anchor map by image.shape/stride, ex: input 128x128, stride=8, anchor_map = 16x16
+  ROW: 2 # row, row number of anchor points
+  LINE: 2 # line, line number of anchor points
+  POINT_LOSS_COEF: 0.0002 # point_loss_coef
+  EOS_COEF: 0.5 # eos_coef, Relative classification weight of the no-object class
+
+  LOSS: ['L2']
+  WEIGHT_DICT: {'loss_ce': 1, 'loss_points': 0.0002, 'loss_aux': 0.} 
+  AUX_EN: False      # auxiliary point is not used in the inference.
+  AUX_NUMBER: [1, 1] # the number of pos/neg anchors
+  AUX_RANGE: [1, 4]  # the RoI range of auxiliary anchors
+  AUX_kwargs: {'pos_coef': 1., 'neg_coef': 1., 'pos_loc': 0.0002, 'neg_loc': 0.0002} 
+
+RESUME: False # resume, resume from checkpoint
+RESUME_PATH: '' # keep training weights.
+
+# -----------------------------------------------------------------------------
+# Dataset
+# -----------------------------------------------------------------------------
+DATASETS:
+  DATASET: 'SHHA' # dataset_file
+  DATA_ROOT: '/work/sylab607/CIH/CrowdCounting/Dataset/ShanghaiTech/TorchData/shanghaitech_part_A' # data_root, path where the dataset is
+  # /work/sylab607/CIH/CrowdCounting/Dataset/ShanghaiTech/PointData/part_A/
+  # /work/sylab607/CIH/CrowdCounting/Dataset/ShanghaiTech/TorchData/shanghaitech_part_A
+
+# -----------------------------------------------------------------------------
+# DATALOADER
+# -----------------------------------------------------------------------------
+DATALOADER:
+  AUGUMENTATION: ['Normalize', 'Crop', 'Flip']
+  CROP_SIZE: 128      # radnom crip size for training
+  CROP_NUMBER: 4      # the number of training sample
+  UPPER_BOUNDER: -1   # the upper bounder of size
+  NUM_WORKERS: 0      # num_workers
+
+# ---------------------------------------------------------------------------- #
+# Solver
+# ---------------------------------------------------------------------------- #
+SOLVER:
+  BATCH_SIZE: 8 # batch_size\
+  START_EPOCH: 0 # start_epoch
+  EPOCHS: 3500  # epochs
+  LR_DROP: 3500 # lr_drop
+  LR: 0.0001    # lr
+  LR_BACKBONE: 0.00001 # lr_backbone
+  WEIGHT_DECAY: 0.0001 # weight_decay
+  LR_DROP: 3500 # lr_drop
+  CLIP_MAX_NORM: 0.1 # clip_max_norm, gradient clipping max norm
+
+  EVAL_FREQ: 1 # eval_freq, frequency of evaluation, default setting is evaluating in every 5 epoch
+  LOG_FREQ: 1 # log_freq, frequency of recording training.
+
+# ---------------------------------------------------------------------------- #
+# Matcher
+# ---------------------------------------------------------------------------- #
+MATCHER:
+  SET_COST_CLASS: 1. # set_cost_class, Class coefficient in the matching cost
+  SET_COST_POINT: 0.05 # set_cost_point, L1 point coefficient in the matching cost
+
+# -----------------------------------------------------------------------------
+# TEST
+# -----------------------------------------------------------------------------
+TEST:
+  THRESHOLD: 0.5
