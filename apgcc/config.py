@@ -106,6 +106,7 @@ _C.MATCHER.SET_COST_POINT = 0.05 # set_cost_point, L1 point coefficient in the m
 # -----------------------------------------------------------------------------
 _C.TEST = edict()
 _C.TEST.THRESHOLD = 0.5
+_C.TEST.WEIGHT = ""
 
 ################ modules ################
 def cfg_merge_a2b(a, b):

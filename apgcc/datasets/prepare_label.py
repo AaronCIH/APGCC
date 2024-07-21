@@ -1,5 +1,5 @@
 # ref: https://github.com/TencentYoutuResearch/CrowdCounting-P2PNet/issues/8
-# cmd: python _pre_process_label.py src_path dataset output_path
+# cmd: python pre_process_label.py src_path dataset output_path
 from scipy.io import loadmat
 import os
 import argparse
@@ -111,7 +111,7 @@ def build_datalabel(root_path, dataset, output_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("root_path", help="Root path for shanghai dataset")
-    parser.add_argument("dataset", help="dataset name: ('SHHA', 'SHHB', 'NWPU')")
+    parser.add_argument("dataset", choices=['SHHA', 'SHHB', 'NWPU'], help="dataset name: ('SHHA', 'SHHB', 'NWPU')")
     parser.add_argument("output_path", help="Path to store results")
     args = parser.parse_args()
     build_datalabel(args.root_path, args.dataset, args.output_path)

@@ -1,7 +1,7 @@
-TAG: 'SHHA_AGPCC'
+TAG: 'APGCC_SHHA'
 SEED: 1229                                  # seed
 GPU_ID: 0                                   # gpu_id, the gpu used for training
-OUTPUT_DIR: './output_SHHA/temp/'           # output_dir, path where to save, empty for no saving
+OUTPUT_DIR: './output/'                     # output_dir, path where to save, empty for no saving
 VIS: False                                  # vis the predict sample
 
 # -----------------------------------------------------------------------------
@@ -9,10 +9,10 @@ VIS: False                                  # vis the predict sample
 # -----------------------------------------------------------------------------
 MODEL:
   ENCODER: 'vgg16_bn'                       # backbone, select: ['vgg16', 'vgg16_bn', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152']
-  ENCODER_kwargs: {"last_pool": False}      # last layer downsample, False:feat4(H/16,W/16), True:feat4(H/32,W/32)                            
+  ENCODER_kwargs: {"last_pool": False}      # last layer downsample, False:feat4(H/16,W/16), True:feat4(H/32,W/32)
   DECODER: 'IFI'                            # decoder, select: ['basic', 'IFI']
   DECODER_kwargs: {"num_classes": 2,        # output num_classes, default:2 means confindence.
-                  "inner_planes": 64,       # default: basic: 256, IFI: 64
+                   "inner_planes": 64,      # basic: 256, IFI: 64
                    "feat_layers":[3,4],     # control the number of decoder features. [1,2,3,4]
                    "pos_dim": 32,           # if ultra_pe, it has to large than 2
                    "ultra_pe": True,        # additional position encoding. x -> (x, sin(x), cos(x))
@@ -34,7 +34,7 @@ MODEL:
 
   LOSS: ['L2']
   WEIGHT_DICT: {'loss_ce': 1, 'loss_points': 0.0002, 'loss_aux': 0.2} 
-  AUX_EN: False      # auxiliary point is not used in the inference.
+  AUX_EN: True      # auxiliary point is not used in the inference.
   AUX_NUMBER: [2, 2] # the number of pos/neg anchors
   AUX_RANGE: [2, 8]  # the RoI range of auxiliary anchors
   AUX_kwargs: {'pos_coef': 1., 'neg_coef': 1., 'pos_loc': 0.0002, 'neg_loc': 0.0002} 
@@ -87,4 +87,4 @@ MATCHER:
 # -----------------------------------------------------------------------------
 TEST:
   THRESHOLD: 0.5
-  WEIGHT: ''
+  WEIGHT: './output/SHHA_best.pth'

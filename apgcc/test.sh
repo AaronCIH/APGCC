@@ -1,1 +1,1 @@
-python main.py -t -c /mnt/191/c/CrowdCounting/ECCV_APGCC/APGCC/output/SHHA_test.yml TEST.THRESHOLD 0.5 VIS False
+python main.py -t -c ./configs/SHHA_test.yml TEST.WEIGHT './output/SHHA_best.pth' OUTPUT_DIR ./output/ TEST.THRESHOLD 0.5
