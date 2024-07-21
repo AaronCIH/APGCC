@@ -82,16 +82,42 @@ where \[config\] specifies the initial configuration and defaults as "./configs/
 <img width="380" alt="image" src='figures/teaser3.jpg'><img width="380" alt="image" src='figures/teaser4.jpg'>
 
 ## Visual Comparison
-<img src="figures/teaser1.gif" width="380"><img src="figures/teaser2.gif" width="380">
-
+<table>
+  <tr>
+    <td>
+      <img src="figures/teaser1.gif" width="380">
+    </td>
+    <td>
+      <img src="figures/teaser2.gif" width="380">
+    </td>
+  </tr>
+</table>
 
 ## Quantitative Comparison
 ### Evaluation on Crowd Counting
 <img width="720" alt="image" src='figures/exp_count_all.png'>
-<img width="380" alt="image" src='figures/exp_count_cc.png'><img width="380" alt="image" src='figures/exp_count_nwpu.png'>
+<table>
+  <tr>
+    <td>
+        <img width="380" alt="image" src='figures/exp_count_cc.png'>
+    </td>
+    <td>
+        <img width="380" alt="image" src='figures/exp_count_nwpu.png'>
+    </td>
+  </tr>
+</table>
 
 ### Evaluation on Crowd Localization
-<img width="380" alt="image" src='figures/exp_loc_nwpu.png'><img width="380" alt="image" src='figures/exp_loc_shha.png'>
+<table>
+  <tr>
+    <td>
+        <img width="380" alt="image" src='figures/exp_loc_nwpu.png'>
+    </td>
+    <td>
+        <img width="380" alt="image" src='figures/exp_loc_shha.png'>
+    </td>
+  </tr>
+</table>
 
 ## Reference
 If you find this work useful, please consider citing us!
