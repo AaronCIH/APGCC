@@ -79,16 +79,9 @@ python main.py -t -c $[config] TEST.WEIGHT $[checkpoint] OUTPUT_DIR $[output pat
 where \[config\] specifies the initial configuration and defaults as "./configs/SHHA_test.yml", \[checkpoint\] is your pretrained checkpoint, \[output path\] specifies the output folder, and \[threshold\] can filter different confidence levels. The more configure instruction please see the "./configs/SHHA_test.yml" files.
 
 ## Performance
-<table>
-  <tr>
-    <td>
-        <img width="380" alt="image" src='figures/teaser3.jpg'>
-    </td>
-    <td>
-        <img width="380" alt="image" src='figures/teaser4.jpg'>
-    </td>
-  </tr>
-</table>
+<center class="half">
+    <img width="380" alt="image" src='figures/teaser3.jpg'><img width="380" alt="image" src='figures/teaser4.jpg'>
+<\center>
 
 ## Visual Comparison
 <table>
