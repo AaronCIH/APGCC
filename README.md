@@ -6,6 +6,7 @@ Official repository for APGCC: Improving Point-based Crowd Counting and Localiza
 
 ## Updates
 - July 2024: ✨ Inference code has been released!
+- July 2024: ✨ APGCC was accepted into ECCV 2024!
 
 ## Introduction
 Crowd counting and localization have become increasingly important in computer vision due to their wide-ranging applications. While point-based strategies have been widely used in crowd counting methods, they face a significant challenge, i.e., the lack of an effective learning strategy to guide the matching process. This deficiency leads to instability in matching point proposals to target points, adversely affecting overall performance. To address this issue, we introduce an effective approach to stabilize the proposal-target matching in point-based methods.
